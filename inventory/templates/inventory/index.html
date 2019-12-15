@@ -1,0 +1,35 @@
+{% if all_products %}
+    <ul>
+    {% for product in all_products %}
+        <li><a href="{{ product.code }}/">{{ product.name }}</a></li>
+    {% endfor %}
+    </ul>
+	
+	<form action="{% url 'inventory:add_product' %}" method="post">
+	{% csrf_token %} 
+	<label for="Name">Enter : </label><br>
+	<input type="text" name="name" value="Default Name">
+	
+	<label for="Code">Enter Code: </label><br>
+	<input type="text" name="code" value="">
+	
+	<label for="Stock">Enter stock: </label><br>
+	<input type="number" name="stock" value="">
+	
+	<label for="Description">Enter Description: </label><br>
+	<input type="text" name="description" value="">
+	
+	<label for="Image">Enter Image: </label><br>
+	<input type="text" name="image" value="">
+	
+	<label for="Seller ID">Enter Seller ID: </label><br>
+	<input type="number" name="seller_id" value="">
+	
+	<label for="Merchant ID">Enter Merchant ID: </label><br>
+	<input type="number" name="merchant_id" value="">
+	
+	<input type="submit" value="OK">
+	</form>
+{% else %}
+    <p>No Products are available.</p>
+{% endif %}
