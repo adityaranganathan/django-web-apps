@@ -1,0 +1,24 @@
+{% extends "inventory/base.html" %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'inventory/signup.css' %}" >{% endblock %}
+
+{% block content %}
+<h1>Retailer Signup</h1>
+
+<form action={% url 'inventory:sign_up_retailer' %} method="POST">
+{% csrf_token %}
+{{form.as_p}}
+<p><input class="submit" type="submit" value="Sign Up"></p>
+</form>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{{ form.name.errors }}
+
+{% endblock %}

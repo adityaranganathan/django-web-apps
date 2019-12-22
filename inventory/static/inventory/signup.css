@@ -1,0 +1,40 @@
+h1{
+	margin-top:5rem;
+	color:black;
+	font-family:"Courier New", Courier, monospace;
+	text-align: center;
+}
+
+
+ul li, p {
+	list-style-type:none;
+	text-align: center;
+	margin-top:5px;
+	font-family:"Courier New", Courier, monospace;
+}
+.success{
+	color:green;
+}
+.info{
+	color:red;
+}
+
+.submit{
+	display:inline-block;
+	padding:0.35em 1.2em;
+	border:0.1em solid #FFFFFF;
+	margin:0 0.3em 0.3em 0;
+	border-radius:0.12em;
+	box-sizing: border-box;
+	text-decoration:none;
+	font-family:"Courier New", Courier, monospace;
+	font-weight:300;
+	text-align:center;
+	transition: all 0.2s;
+	color:white;
+	background-color:black;
+}
+.submit:hover{
+	color:#000000;
+	background-color:#FFFFFF;
+}

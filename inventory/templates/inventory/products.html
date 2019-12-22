@@ -1,0 +1,35 @@
+{% extends "inventory/base.html" %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'inventory/products.css' %}" >{% endblock %}
+
+{% block content %}
+<h1>Products</h1>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<ul>
+  {% for product in products %}
+  <li>
+  <h3>{{ product.name }} </h3>
+    <p>Product Code - {{ product.code }} </p>
+	<p>Stock - {{ product.stock }} </p>
+	<p>Description - {{ product.description }} </p>
+	<p>Merchant - {{ product.merchant }} </p>
+  </li>
+  {% endfor %}
+</ul>
+
+<h2>Add Product</h2>
+<form action={% url 'inventory:products_list' %}  method="POST">
+{% csrf_token %}
+{{form.as_p}}
+<p><input class="submit" type="submit" value="Create"></p>
+</form>
+
+{% endblock %}
