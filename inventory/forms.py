@@ -5,6 +5,7 @@ from django.db import transaction
 
 from .models import Retailer, CustomUser, Product
 
+
 class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
@@ -17,6 +18,19 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
         fields = ('email',)
+""" 
+class RetailerCreationForm(UserCreationForm):
+
+    class Meta(UserCreationForm):
+        model = Retailer
+        #fields = ('email',)
+
+
+class RetailerChangeForm(UserChangeForm):
+
+    class Meta:
+        model = Retailer
+        #fields = ('email',)
 
 class RetailerSignUpForm(CustomUserCreationForm):
     
@@ -44,8 +58,11 @@ class RetailerSignUpForm(CustomUserCreationForm):
 		retailer.contactNumber = self.cleaned_data.get('contactNumber')
 		retailer.save()
 		return user
+		
         
 class ProductForm(ModelForm):
     class Meta:
         model=Product
         exclude = ['retailer']
+		
+"""

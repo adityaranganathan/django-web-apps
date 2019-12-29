@@ -25,7 +25,7 @@ SECRET_KEY = 'l&_2h%nenwvip7gu89sdc#bcr9f_4$n*hbo)28!!p@n6-x^^yx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['3.6.14.30', 'localhost']
 
 
 # Application definition
@@ -123,3 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#REST_FRAMEWORK = {
+#    'DEFAULT_PERMISSION_CLASSES': (
+##        'inventory.permissions.IsPostRequest',
+##    )
+#}
