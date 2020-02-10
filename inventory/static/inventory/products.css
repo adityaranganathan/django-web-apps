@@ -1,17 +1,27 @@
-h1, h2, h3{
-	margin-top:5rem;
-	color:black;
-	font-family:"Courier New", Courier, monospace;
+html {
+  font-family: "Arial", sans-serif;
+  font-size:10px;
+}
+
+h1{
+	font-size:5rem;
+	font-weight:200;
+	background-color:gray;
 	text-align: center;
+	letter-spacing:12px;
+	
+}
+.productcard{
+	background-color:#ebebff;
+}
+.productcontainer{
+	display:grid;
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+	grid-gap:1em;
 }
 
 
-ul li, p {
-	list-style-type:none;
-	text-align: center;
-	margin-top:5px;
-	font-family:"Courier New", Courier, monospace;
-}
+
 .success{
 	color:green;
 }
@@ -38,3 +48,4 @@ ul li, p {
 	color:#000000;
 	background-color:#FFFFFF;
 }
+

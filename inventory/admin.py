@@ -6,32 +6,8 @@ from .forms import CustomUserCreationForm, CustomUserChangeForm#, RetailerCreati
 
 admin.site.register(Product)
 admin.site.register(Merchant)
-"""
-class RetailerAdmin(UserAdmin):
-    model = Retailer
-    add_form = RetailerCreationForm
-    form = RetailerChangeForm
-    list_display = ['email', 'bussiness_name']
-    
-    
-    fieldsets = (
-        (None, {'fields': ('email', 'password')}),
-        ('Permissions', {'fields': ('is_staff', 'is_active', 'is_superuser', 'groups', 'user_permissions')}),
-    )
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2', 'is_staff', 'is_active')}
-        ),
-    )
-    search_fields = ('email',)
-    ordering = ('email',)
-    readonly_fields = ['date_joined',]
-    
-admin.site.register(Retailer, RetailerAdmin)
-"""
 admin.site.register(Customer)
-
+admin.site.register(Retailer)
 
 class CustomUserAdmin(UserAdmin):
     model = CustomUser

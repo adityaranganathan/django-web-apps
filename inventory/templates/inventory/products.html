@@ -4,7 +4,7 @@
 {% block style %}<link rel="stylesheet" href="{% static 'inventory/products.css' %}" >{% endblock %}
 
 {% block content %}
-<h1>Products</h1>
+<h1>INVENTORY</h1>
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
@@ -13,23 +13,24 @@
 </ul>
 {% endif %}
 
-<ul>
-  {% for product in products %}
-  <li>
-  <h3>{{ product.name }} </h3>
-    <p>Product Code - {{ product.code }} </p>
-	<p>Stock - {{ product.stock }} </p>
-	<p>Description - {{ product.description }} </p>
-	<p>Merchant - {{ product.merchant }} </p>
-  </li>
-  {% endfor %}
-</ul>
+<div class="productcontainer">
+{% for product in products %}
+<div class="productcard">
+<p>{{ product.name }}</p>
+<p>Stock - {{ product.stock }}</p>
+<p>Product Code - {{ product.code }} </p>
+</div>
+{% endfor %}
 
-<h2>Add Product</h2>
-<form action={% url 'inventory:products_list' %}  method="POST">
-{% csrf_token %}
-{{form.as_p}}
-<p><input class="submit" type="submit" value="Create"></p>
-</form>
+
+<aside>
+  <h2>Add Product</h2>
+    <form action={% url 'inventory:products_list' %}  method="POST">
+    {% csrf_token %}
+      {{form.as_p}}
+    <p><input class="submit" type="submit" value="Create"></p>
+  </form>
+</aside>
+</div>
 
 {% endblock %}

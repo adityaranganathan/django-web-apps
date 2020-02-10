@@ -4,7 +4,7 @@ from .models import Product, Merchant, Retailer, CustomUser, Customer
 class ProductSerializer(serializers.ModelSerializer):
 
     retailer = serializers.ReadOnlyField(source='retailer.user.email')
-    url = serializers.HyperlinkedIdentityField(view_name="product-detail", lookup_field='uuid')
+    url = serializers.HyperlinkedIdentityField(view_name="inventory:product-detail", lookup_field='uuid')
     merchantuuid = serializers.CharField(max_length=100, write_only=True, required=False, allow_null=True)
     merchant_name = serializers.ReadOnlyField(source='merchant.name')
     
@@ -19,7 +19,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class MerchantSerializer(serializers.ModelSerializer):
 
     retailer = serializers.ReadOnlyField(source='retailer.user.email')
-    url = serializers.HyperlinkedIdentityField(view_name="merchant-detail", lookup_field='uuid')
+    url = serializers.HyperlinkedIdentityField(view_name="inventory:merchant-detail", lookup_field='uuid')
     
     class Meta:
         model = Merchant
@@ -27,7 +27,7 @@ class MerchantSerializer(serializers.ModelSerializer):
         
 class CustomUserSerializer(serializers.HyperlinkedModelSerializer):
 
-    url = serializers.HyperlinkedIdentityField(view_name="customuser-detail", lookup_field='uuid')
+    url = serializers.HyperlinkedIdentityField(view_name="inventory:customuser-detail", lookup_field='uuid')
     
     class Meta:
         model = CustomUser
@@ -38,7 +38,7 @@ class CustomUserSerializer(serializers.HyperlinkedModelSerializer):
 class RetailerSerializer(serializers.HyperlinkedModelSerializer):
 
     user = CustomUserSerializer()
-    url = serializers.HyperlinkedIdentityField(view_name="retailer-detail", lookup_field='uuid')
+    url = serializers.HyperlinkedIdentityField(view_name="inventory:retailer-detail", lookup_field='uuid')
     products = serializers.PrimaryKeyRelatedField(many=True, required=False, queryset=Product.objects.all())
     
     class Meta:
@@ -72,7 +72,7 @@ class RetailerSerializer(serializers.HyperlinkedModelSerializer):
 class CustomerSerializer(serializers.HyperlinkedModelSerializer):
 
     user = CustomUserSerializer()
-    url = serializers.HyperlinkedIdentityField(view_name="customer-detail", lookup_field='uuid')
+    url = serializers.HyperlinkedIdentityField(view_name="inventory:customer-detail", lookup_field='uuid')
     
     class Meta:
         model = Customer

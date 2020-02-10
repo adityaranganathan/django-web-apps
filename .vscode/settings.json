@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\Aditya\\Anaconda2\\envs\\tensorflow_win\\python.exe"
+    "python.pythonPath": "C:\\Users\\Aditya\\Anaconda2\\envs\\tensorflow_win\\python.exe",
+    "liveServer.settings.port": 5501
 }

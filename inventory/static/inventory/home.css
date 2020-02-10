@@ -1,16 +1,207 @@
-h1, p{
-	margin-top:5rem;
-	color:black;
-	font-family:"Courier New", Courier, monospace;
+html, body{
+    padding:0;
+    margin:0;
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    /* font-family: 'Roboto', sans-serif; */
+}
+
+body{
+	background-image: linear-gradient( rgba(0,0,0,0.5), rgba(0,0,0,0.5) ), 
+						  url(./img/background-computer.jpg);
+	background-size:160vh;
+	background-repeat:no-repeat;
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "header header"
+						 "main-heading main-heading"
+						 "features features"
+						 "retailer-signup retailer-signup"
+						 "footer footer"
+}
+
+.nav-top{
+	grid-area:header;
+	margin-top:0;
+	padding:1.75rem;
+	background-color: #7510f7;
+	position:relative;
+}
+
+.nav-top *{
+	opacity:0;
+}
+
+.nav-top p{
+	opacity:1;
+	margin:0;
+	font-size:2rem;
+	color:white;
+	font-weight:700;
+	line-height:1;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+}
+.main-heading{
+	grid-area:main-heading;
+	height: calc(100vh - 48px);
+	color:white;
+	/* background-color: red; */
+	padding:1px;
+	text-align:center;
+}
+.main-heading__title{
+	font-size:calc(3rem + 3.5vw);
+	letter-spacing: 0.5px;
+	margin:12rem auto 1rem auto;
 	text-align: center;
+	padding:0;
+	line-height:1;
+}
+.main-heading__desc{
+	font-size:calc(1.5rem + 1.5vw);
+	letter-spacing: 1px;
+	margin:1rem auto 3.5rem auto;
+	text-align: center;
+	color:#eee;
+}
+.main-heading__btn{
+	margin-top:1.5rem;
+	padding:1rem 2rem;
+	font-size:2.2rem;
+	text-decoration: none;
+	border:solid 1px;
+	border-color: white;
+	color:white;
+	border-radius:2rem;
+	transition: color, background-color 0.2s ease;
+}
+.main-heading__logo{
+	/* background:red; */
+	margin-top:15rem;
+	height:200px;
+	width:200px;
+	/* background-image: url(./img/cube.png); */
+	/* background-repeat: no-repeat; */
+
+}
+
+.main-heading__btn:hover{
+	cursor: pointer;
+	background-color: #7510f7;
+	color:white;
 }
 
 
-ul li {
-	list-style-type:none;
+.features{
+	grid-area:features;
+	background-color:#7510f7;
+	padding:30px;
 	text-align: center;
-	margin-top:5px;
-	font-family:"Courier New", Courier, monospace;
+}
+.features-heading{
+	color:white;
+	font-size: 5.5vw;
+}
+.feature-card{
+	width:50%;
+	margin:2rem auto 3rem auto;
+}
+.feature-title{
+	font-size: 6vw;
+	color:white;
+	margin-bottom: 1.5rem;
+	font-weight:500;
+}
+.feature-logo{
+	margin-top:1rem;
+	height:50px;
+	width:50px;
+}
+.feature-desc{
+	margin-top:0;
+	font-size: 4vw;
+	color:#d8ccff;
+	font-family: 'Roboto', sans-serif;
+}
+
+.retailer-signup{
+	grid-area:retailer-signup;
+	text-align:center;
+	padding:0;
+}
+.retailer-signup-wrapper{
+	background:white;
+	margin:0;
+	padding:1px;
+}
+
+.retailer-signup__title{
+	font-size:6vw;
+}
+
+
+.retailer-signup ul{
+	padding:1px;
+	margin:0;
+}
+.retailer-signup__form{
+	height:max-content;
+}
+
+.retailer-signup ul li{
+	padding:1px;
+	width:75%;
+	margin:1rem auto 1rem auto;
+	list-style-type:none;
+	position:relative;
+}
+.retailer-signup ul li label{
+	font-size:2rem;;
+	font-family: 'Roboto', sans-serif;
+	margin:0;
+	display:block;
+	text-align: left;
+	color:gray;
+}
+.retailer-email, .retailer-pwd{
+	font-size:1.5rem;
+	width: 100%;
+	height:40px;
+	padding: 5px 20px;
+	margin: 4px 0;
+	box-sizing: border-box;
+	border-radius: 0.5rem;
+	border:solid 1px;
+}
+
+.retailer-signup__submit{
+	margin-top:1.5rem;
+	padding:1rem 2rem;
+	width:max-content;
+	font-size:2.2rem;
+	border:solid 1px;
+	border-color: #7510f7;
+	border-radius:1rem;
+	background-color: white;
+	transition: color, background-color 0.2s ease;
+}
+
+.retailer-signup__submit:hover{
+	cursor: pointer;
+	background-color: #7510f7;
+	color:white;
+}
+
+.retailer-signup p{
+	font-size:1.5rem;
+}
+.messages{
+	padding:0rem;
+	font-size:3rem;
 }
 .success{
 	color:green;
@@ -19,22 +210,95 @@ ul li {
 	color:red;
 }
 
-.submit{
-	display:inline-block;
-	padding:0.35em 1.2em;
-	border:0.1em solid #FFFFFF;
-	margin:0 0.3em 0.3em 0;
-	border-radius:0.12em;
-	box-sizing: border-box;
-	text-decoration:none;
-	font-family:"Courier New", Courier, monospace;
-	font-weight:300;
-	text-align:center;
-	transition: all 0.2s;
-	color:white;
-	background-color:black;
+footer{
+	grid-area:footer;
+	height:50px;
+	background-color:#7510f7
 }
-.submit:hover{
-	color:#000000;
-	background-color:#FFFFFF;
+
+@media (min-width: 850px) {
+	body{
+		background-image: linear-gradient( rgba(0,0,0,.05), rgba(0,0,0,.05) ), 
+						  url(./img/background-computer.jpg);
+		background-repeat:no-repeat;
+		background-size:auto;
+		grid-template-areas: "header header"
+							 "main-heading retailer-signup"
+							 "features features"
+							 "footer footer"
+	}
+	.main-heading{
+		position:relative;
+	}
+	.main-heading-wrapper{
+		position:absolute;
+		top:50%;
+		left:20%;
+		transform:translate(-20%, -50%);
+	}
+	.main-heading__title{
+		font-size:6rem;
+		text-align: left;
+		margin: 0;
+	}
+	.main-heading__desc{
+		font-size:3rem;
+		text-align: left;
+	}
+
+	.main-heading__btn{
+		opacity: 0;
+		display:none;
+	}
+	.main-heading__logo{
+		margin-top:5rem;
+		height:200px;
+		width:200px;
+		display:none;
+	}
+
+	.retailer-signup{
+		position:relative;
+	}
+
+	.retailer-signup-wrapper{
+		box-shadow: 1px 1px 3px 2px rgb(207, 207, 207);		
+		width:80%;
+		max-width:55rem;
+		border-radius:1rem;
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%, -50%);
+	}
+
+	.retailer-signup__title{
+		font-size:3.25rem;
+	}
+
+	.retailer-signup__form{
+		height:max-content;
+	}
+
+	.features{
+		display:flex;
+		padding:1rem 1px 5rem 1px;
+	}
+	.feature-card{
+		margin:1rem 4rem 1rem 4rem;
+		padding:1px;
+		width:30%;
+	}
+	.feature-title{
+		font-size:3.5rem;
+	}
+	.feature-desc{
+		font-size:2rem;
+		padding:0rem 1rem 0rem 1rem;
+	}
+
+
+	footer{
+		height:0px;
+	}
 }

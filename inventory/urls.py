@@ -1,6 +1,7 @@
 from django.urls import path, include
 from . import views
 
+app_name = "inventory"
 api_patterns = [
     path('merchants/', views.MerchantList.as_view()),
     path('merchants/<str:uuid>/', views.MerchantDetail.as_view(), name = "merchant-detail"),
@@ -14,18 +15,11 @@ api_patterns = [
     path('products/<str:uuid>/', views.ProductDetail.as_view(), name="product-detail"),    
 ]
 
-#from rest_framework import routers
-
-#router = routers.DefaultRouter()
-#router.register(r'retailers', views.RetailerViewSet)
-
-
 urlpatterns = [
-    #path('', views.index, name='home'),
-    #path('apir/', include(router.urls)),
-    #path('signup/retailer/', views.sign_up_retailer, name='sign_up_retailer'),
-    #path('signup/customer/', views.sign_up_customer, name='sign_up_customer'),
-    #path('products/', views.products_list, name='products_list'),
+    path('', views.index, name='home'),
     path('api/', include(api_patterns)),
+    path('signup/retailer/', views.sign_up_retailer, name='sign_up_retailer'),
+    path('signup/customer/', views.sign_up_customer, name='sign_up_customer'),
+    path('products/', views.products_list, name='products_list'),
 ]
 

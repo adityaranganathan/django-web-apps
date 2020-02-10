@@ -4,33 +4,77 @@
 {% block style %}<link rel="stylesheet" href="{% static 'inventory/home.css' %}" >{% endblock %}
 
 {% block content %}
-<h1> Inventory Management</h1>
+<nav class="nav-top">
+  <p>
+    inventory
+  </p>
+  <a class="nav-options">Home</a>
+  <a class="nav-options">Features</a>
+  <a class="nav-options">Contact Us</a>
+</nav>
 
-<h1>Retailer Login</h1>
-<form action={% url 'inventory:home' %}  method="POST">
-{% csrf_token %}
-  <ul>
-    <li>
-      <label>Email</label>
-      <input type="text" id="email" name="email">
-	</li>
-    <li>
-	  <label>Password</label>
-      <input type="password" id="pwd" name="pwd">
-	</li>
-	<li>
-	  <input class="submit" type="submit" value="Login">
-	</li>
-</form>
+<section class="main-heading">
+  <div class="main-heading-wrapper">
+    <h1 class="main-heading__title">Inventory Management</h1>
+    <p class="main-heading__desc">We help you manage your stock!</p>
+    <p><a class="main-heading__btn" href="#retailer-signup">Sign Up Now!</a><p>
+    {% comment %} <img class="main-heading__logo" src="{% static "inventory/img/cube.png" %}"/> {% endcomment %}
+  </div>
+</section>
 
-<p>Dont have an account? <a href="{% url 'inventory:sign_up_retailer' %}" >Sign Up!</a></p>
+<section class="features">
+  <!-- <h2 class="features-heading">Features</h2> -->
+  <div class="feature-card">
+    <img class="feature-logo" src="{% static "inventory/img/cube.png" %}"/>
+    <p class="feature-title">Track your inventory</p>
+    <p class="feature-desc">lremwv uwiiojdfb viodbf viowbe fviobefvib wefivbei fvbiwefbvi bfvibdf viob fi vlbewfilvbleif  hvowh</p>
+  </div>
+  <div class="feature-card">
+    <img class="feature-logo" src="{% static "inventory/img/cube.png" %}"/>
+    <p class="feature-title">Get monthly reports</p>
+    <p class="feature-desc">lremwv uwiiojdfb viodbf viowbe fviobefvib wefivbei fvbiwefbvi bfvibdf viob fi vlbewfilvbleif  hvowh</p>
+  </div>
+  <div class="feature-card">
+    <img class="feature-logo" src="{% static "inventory/img/cube.png" %}"/>
+    <p class="feature-title">Feature your products</p>
+    <p class="feature-desc">lremwv uwiiojdfb viodbf viowbe fviobefvib wefivbei fvbiwefbvi bfvibdf viob fi vlbewfilvbleif  hvowh</p>
+  </div>
+</section>
 
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+<section class="retailer-signup" id="retailer-signup">
+  <div class = "retailer-signup-wrapper">
+    <h2 class="retailer-signup__title">Sign Up</h2>
+    <form class="retailer-signup__form" action={% url 'inventory:home' %}  method="POST">
+      {% csrf_token %}
+      <ul>
+        <li>
+          <label>Email</label>
+          <input class="retailer-email" type="text" id="email" name="email">
+        </li>
+        <li>
+        <label>Password</label>
+          <input class="retailer-pwd" type="password" id="pwd" name="pwd">
+        </li>
+        <li>
+          <input class="retailer-signup__submit" type="submit" value="Create Account">
+        </li>
+      </ul>
+    </form>
+
+    <p>Already have an account?<a href="{% url 'inventory:sign_up_retailer' %}" >Login</a></p>
+
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<footer>
+
+</footer>
 
 {% endblock %}

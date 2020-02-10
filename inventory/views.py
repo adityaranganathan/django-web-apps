@@ -13,7 +13,7 @@ from .serializers import MerchantSerializer, RetailerSerializer, ProductSerializ
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
-#from .forms import RetailerSignUpForm, ProductForm
+from .forms import  ProductForm, RetailerSignUpForm
 from rest_framework import permissions
 from .permissions import IsPostRequest, IsSuperUser, IsCorrectUser, IsProductRetailerOrReadOnly, IsCustomUserOrReadOnly#, IsRetailer,
 from django.shortcuts import get_object_or_404 
@@ -27,19 +27,18 @@ def index(request):
         user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
-            messages.add_message(request, messages.SUCCESS, 'Succesfully logged in as {}!'.format(email))
+            messages.add_message(request, messages.SUCCESS, 'Succeslly  logged in  as {}!'.format(email))
             return HttpResponseRedirect(reverse('inventory:products_list'))
         else:
             messages.add_message(request, messages.INFO, 'Incorrect credentials') 
     return render(request, 'inventory/index.html')
-    """
+    
 def sign_up_retailer(request):
     if request.method == 'POST':
         sign_up_form = RetailerSignUpForm(request.POST)
         if sign_up_form.is_valid():
             sign_up_form.save()
-            name = sign_up_form.cleaned_data.get('name')
-            messages.add_message(request, messages.SUCCESS, 'Succesfully created {}!'.format(name))
+            messages.add_message(request, messages.SUCCESS, 'Succesfully created {}!'.format(sign_up_form.cleaned_data.get('bussiness_name')))
             return HttpResponseRedirect(reverse_lazy('inventory:home'))
         else:
             messages.add_message(request, messages.INFO, 'Invalid Form!')
@@ -65,7 +64,7 @@ def products_list(request):
             add_productform = ProductForm(request.POST)
         products = Product.objects.filter(retailer = Retailer.objects.get(user=request.user))
     return render(request, 'inventory/products.html', context={'products':products, 'form':add_productform})
-"""  
+
     
 class CustomUserList(generics.ListCreateAPIView):
     queryset = CustomUser.objects.all()
