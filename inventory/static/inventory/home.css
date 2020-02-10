@@ -218,9 +218,6 @@ footer{
 
 @media (min-width: 850px) {
 	body{
-		background-image: linear-gradient( rgba(0,0,0,.05), rgba(0,0,0,.05) ), 
-						  url(./img/background-computer.jpg);
-		background-repeat:no-repeat;
 		background-size:auto;
 		grid-template-areas: "header header"
 							 "main-heading retailer-signup"
